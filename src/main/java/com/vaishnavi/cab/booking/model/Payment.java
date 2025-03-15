@@ -24,7 +24,6 @@ import lombok.*;
         this.paymentMethod = paymentMethod;
         this.status = status;
     }
-
     public int getPaymentId() {
         return 0;
     }
