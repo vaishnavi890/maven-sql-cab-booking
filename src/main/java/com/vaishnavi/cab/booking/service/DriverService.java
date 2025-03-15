@@ -2,7 +2,6 @@ package com.vaishnavi.cab.booking.service;
 
 import com.vaishnavi.cab.booking.model.Driver;
 import com.vaishnavi.cab.booking.repository.DriverRepository;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 

@@ -40,6 +40,6 @@ public class Rating {
     public void setRating(Object rating) {
     }
 
-    public void setReview(Object review) {
+    public void setReview(java.lang.Object review) {
     }
 }

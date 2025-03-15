@@ -3,6 +3,7 @@ package com.vaishnavi.cab.booking.model;
 import lombok.*;
 
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
 @ToString

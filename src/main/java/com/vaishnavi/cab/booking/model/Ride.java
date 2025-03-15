@@ -58,6 +58,6 @@ public class Ride {
     public void setFare(Object fare) {
     }
 
-    public void setStatus(Object status) {
+    public void setStatus(java.lang.Object status) {
     }
 }

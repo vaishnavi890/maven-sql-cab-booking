@@ -44,7 +44,7 @@ import lombok.ToString;
         public void setEmail(Object email) {
         }
 
-        public void setName(String name) {
+        public void setName(java.lang.String name) {
         }
     }
 
