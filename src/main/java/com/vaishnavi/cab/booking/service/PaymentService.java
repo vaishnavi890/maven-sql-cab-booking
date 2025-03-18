@@ -9,10 +9,6 @@ import java.util.Optional;
 public class PaymentService {
     private PaymentRepository paymentRepository = new PaymentRepository();
 
-    public void processPayment(Payment payment) {
-        paymentRepository.savePayment(payment);
-    }
-
     public void getAllPayments() {
         List<Payment> payments = paymentRepository.findAllPayments();
         payments.forEach(System.out::println);
