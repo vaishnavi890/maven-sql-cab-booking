@@ -2,7 +2,7 @@ create database IF NOT EXISTS stepupdb;
 USE stepupdb;
 
 CREATE TABLE IF NOT EXISTS Users (
-    user_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT PRIMARY KEY,
     name VARCHAR(100),
     email VARCHAR(100),
     phone VARCHAR(15)
@@ -12,10 +12,16 @@ INSERT INTO Users (name, email, phone) VALUES
 ('John Doe', 'john@example.com', '1234567890'),
 ('Alice Smith', 'alice@example.com', '9876543210');
 
+SELECT * FROM users WHERE user_id = ?;
+
+UPDATE users SET name = ?, email = ?, phone = ? WHERE user_id = ?;
+
+DELETE FROM users WHERE user_id = ?;
+
 SELECT * FROM Users;
 
 CREATE TABLE IF NOT EXISTS Drivers (
-    driver_id INT AUTO_INCREMENT PRIMARY KEY,
+    driver_id INT PRIMARY KEY,
     name VARCHAR(100),
     email VARCHAR(100),
     phone VARCHAR(15),

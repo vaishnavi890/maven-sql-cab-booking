@@ -1,10 +1,13 @@
 package com.vaishnavi.cab.booking;
 
+import com.vaishnavi.cab.booking.model.User;
 import com.vaishnavi.cab.booking.controller.*;
+import com.vaishnavi.cab.booking.repository.UserRepository;
+
 import java.util.Scanner;
 
-public class CabBooking
-{
+
+public class CabBooking {
     public static void main(String[] args) {
         UserController userController = new UserController();
         DriverController driverController = new DriverController();
@@ -158,3 +161,4 @@ public class CabBooking
         }
     }
 }
+

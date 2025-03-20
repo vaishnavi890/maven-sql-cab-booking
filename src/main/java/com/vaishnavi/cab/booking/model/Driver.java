@@ -28,19 +28,19 @@ import lombok.ToString;
             return 0;
         }
 
-        public Object getName() {
+        public String getName() {
             return null;
         }
 
-        public Object getEmail() {
+        public String getEmail() {
             return null;
         }
 
-        public Object getPhone() {
+        public String getPhone() {
             return null;
         }
 
-        public Object getCabDetails() {
+        public String getCabDetails() {
             return null;
         }
 
