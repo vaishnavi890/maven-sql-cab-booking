@@ -17,9 +17,9 @@ import lombok.*;
         private String paymentMethod;
         private String status;
 
-
     public Payment(int paymentId, int rideId, int userId, double amount, String method, String status) {
     }
+
 
     public int getPaymentId() {
         return 0;
