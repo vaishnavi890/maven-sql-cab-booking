@@ -18,6 +18,32 @@ import lombok.*;
         private String status;
 
 
+    public Payment(int paymentId, int rideId, int userId, double amount, String method, String status) {
     }
+
+    public int getPaymentId() {
+        return 0;
+    }
+
+    public int getRideId() {
+        return 0;
+    }
+
+    public int getUserId() {
+        return 0;
+    }
+
+    public double getAmount() {
+        return 0;
+    }
+
+    public String getPaymentMethod() {
+        return "";
+    }
+
+    public String getStatus() {
+        return "";
+    }
+}
 
 

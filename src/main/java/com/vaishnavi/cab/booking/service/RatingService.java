@@ -13,9 +13,10 @@ public class RatingService {
         ratingRepository.saveRating(rating);
     }
 
-    public void getAllRatings() {
+    public List<Rating> getAllRatings() {
         List<Rating> ratings = ratingRepository.findAllRatings();
         ratings.forEach(System.out::println);
+        return ratings;
     }
 
     public void findRatingById(int ratingId) {
@@ -39,6 +40,9 @@ public class RatingService {
     }
 
     public void registerRating(Rating ratingObj) {
+    }
+
+    public void deleteRating(int ratingId) {
     }
 }
 

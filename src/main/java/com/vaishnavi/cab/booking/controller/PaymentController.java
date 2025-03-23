@@ -3,60 +3,44 @@ package com.vaishnavi.cab.booking.controller;
 import com.vaishnavi.cab.booking.model.Payment;
 import com.vaishnavi.cab.booking.service.PaymentService;
 
-import java.util.Scanner;
+import java.util.List;
 
 public class PaymentController {
-    private PaymentService paymentService = new PaymentService();
-    private Scanner scanner = new Scanner(System.in);
+    private final PaymentService paymentService = new PaymentService();
 
-    public void addPayment() {
-        System.out.println("Enter Payment ID: ");
-        int paymentId = scanner.nextInt();
-        System.out.println("Enter Ride ID: ");
-        int rideId = scanner.nextInt();
-        System.out.println("Enter User ID: ");
-        int userId = scanner.nextInt();
-        System.out.println("Enter Amount: ");
-        double amount = scanner.nextDouble();
-        scanner.nextLine();
-        System.out.println("Enter Payment Method: ");
-        String paymentMethod = scanner.nextLine();
-        System.out.println("Enter Payment Status: ");
-        String status = scanner.nextLine();
-
-        Payment payment = new Payment(paymentId, rideId, userId, amount, paymentMethod, status);
-        paymentService.registerPayment(payment);
+    public void addPayment(Payment payment) {
+        try {
+            paymentService.addPayment(payment);
+            System.out.println("Payment added successfully.");
+        } catch (Exception e) {
+            System.err.println("Error adding payment: " + e.getMessage());
+        }
     }
 
-    public void displayAllPayments() {
-        System.out.println("All Payments:");
-        paymentService.getAllPayments();
+    public void getAllPayments() {
+        try {
+            List<Payment> payments = paymentService.getAllPayments();
+            payments.forEach(System.out::println);
+        } catch (Exception e) {
+            System.err.println("Error fetching payments: " + e.getMessage());
+        }
     }
 
-    public void findPaymentById() {
-        System.out.println("Enter Payment ID to search: ");
-        int paymentId = scanner.nextInt();
-        paymentService.findPaymentById(paymentId);
+    public void updatePayment(Payment payment) {
+        try {
+            paymentService.updatePayment(payment);
+            System.out.println("Payment updated successfully.");
+        } catch (Exception e) {
+            System.err.println("Error updating payment: " + e.getMessage());
+        }
     }
 
-    public void deletePayment() {
-        System.out.println("Enter Payment ID to delete: ");
-        int paymentId = scanner.nextInt();
-        paymentService.deletePaymentById(paymentId);
-    }
-
-    public void updatePayment() {
-        System.out.println("Enter Payment ID to update: ");
-        int paymentId = scanner.nextInt();
-        System.out.println("Enter New Amount: ");
-        double amount = scanner.nextDouble();
-        scanner.nextLine();
-        System.out.println("Enter New Payment Method: ");
-        String paymentMethod = scanner.nextLine();
-        System.out.println("Enter New Payment Status: ");
-        String status = scanner.nextLine();
-
-        Payment payment = new Payment(paymentId, 0, 0, amount, paymentMethod, status);
-        paymentService.updatePayment(payment);
+    public void deletePayment(int paymentId) {
+        try {
+            paymentService.deletePayment(paymentId);
+            System.out.println("Payment deleted successfully.");
+        } catch (Exception e) {
+            System.err.println("Error deleting payment: " + e.getMessage());
+        }
     }
 }

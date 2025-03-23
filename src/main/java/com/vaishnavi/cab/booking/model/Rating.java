@@ -29,11 +29,11 @@ public class Rating {
         return 0;
     }
 
-    public Object getRating() {
+    public int getRating() {
         return null;
     }
 
-    public Object getReview() {
+    public String getReview() {
         return null;
     }
 
@@ -41,5 +41,17 @@ public class Rating {
     }
 
     public void setReview(java.lang.Object review) {
+    }
+
+    public int getRideId() {
+        return 0;
+    }
+
+    public int getUserId() {
+        return 0;
+    }
+
+    public int getDriverId() {
+        return 0;
     }
 }

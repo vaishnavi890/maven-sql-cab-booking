@@ -11,13 +11,15 @@ public class UserRepository implements EntityRepository<User> {
 
     @Override
     public void add(User user) {
+        String query = "INSERT INTO users (user_id, name, email, phone) VALUES (?, ?, ?, ?)";
         try (Connection connection = DatabaseConnection.getConnection();
-             PreparedStatement statement = connection.prepareStatement(
-                     "INSERT INTO users (user_id, name, email, phone) VALUES (?, ?, ?, ?)")) {
+             PreparedStatement statement = connection.prepareStatement(query)) {
+
             statement.setInt(1, user.getUserId());
             statement.setString(2, user.getName());
             statement.setString(3, user.getEmail());
             statement.setString(4, user.getPhone());
+
             statement.executeUpdate();
             System.out.println("User added successfully.");
         } catch (SQLException e) {
@@ -27,10 +29,11 @@ public class UserRepository implements EntityRepository<User> {
 
     @Override
     public List<User> getAll() {
-        List<User> usersList = new ArrayList<>();
+        List<User> users = new ArrayList<>();
+        String query = "SELECT * FROM users";
         try (Connection connection = DatabaseConnection.getConnection();
-             Statement statement = connection.createStatement();
-             ResultSet resultSet = statement.executeQuery("SELECT * FROM users")) {
+             PreparedStatement statement = connection.prepareStatement(query);
+             ResultSet resultSet = statement.executeQuery()) {
 
             while (resultSet.next()) {
                 User user = new User(
@@ -39,23 +42,25 @@ public class UserRepository implements EntityRepository<User> {
                         resultSet.getString("email"),
                         resultSet.getString("phone")
                 );
-                usersList.add(user);
+                users.add(user);
             }
         } catch (SQLException e) {
             System.err.println("Error fetching users: " + e.getMessage());
         }
-        return usersList;
+        return users;
     }
 
     @Override
     public void update(User user) {
+        String query = "UPDATE users SET name=?, email=?, phone=? WHERE user_id=?";
         try (Connection connection = DatabaseConnection.getConnection();
-             PreparedStatement statement = connection.prepareStatement(
-                     "UPDATE users SET name=?, email=?, phone=? WHERE user_id=?")) {
+             PreparedStatement statement = connection.prepareStatement(query)) {
+
             statement.setString(1, user.getName());
             statement.setString(2, user.getEmail());
             statement.setString(3, user.getPhone());
             statement.setInt(4, user.getUserId());
+
             statement.executeUpdate();
             System.out.println("User updated successfully.");
         } catch (SQLException e) {
@@ -65,9 +70,12 @@ public class UserRepository implements EntityRepository<User> {
 
     @Override
     public void delete(int id) {
+        String query = "DELETE FROM users WHERE user_id=?";
         try (Connection connection = DatabaseConnection.getConnection();
-             PreparedStatement statement = connection.prepareStatement("DELETE FROM users WHERE user_id=?")) {
+             PreparedStatement statement = connection.prepareStatement(query)) {
+
             statement.setInt(1, id);
+
             statement.executeUpdate();
             System.out.println("User deleted successfully.");
         } catch (SQLException e) {

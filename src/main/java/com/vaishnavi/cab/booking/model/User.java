@@ -15,6 +15,9 @@ import lombok.*;
         private String email;
         private String phone;
 
+    public User(int userId, String name, String email, String phone) {
+    }
+
 
     public int getUserId() {
         return 0;

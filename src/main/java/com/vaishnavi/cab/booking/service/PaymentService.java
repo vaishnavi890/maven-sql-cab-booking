@@ -9,9 +9,10 @@ import java.util.Optional;
 public class PaymentService {
     private PaymentRepository paymentRepository = new PaymentRepository();
 
-    public void getAllPayments() {
+    public List<Payment> getAllPayments() {
         List<Payment> payments = paymentRepository.findAllPayments();
         payments.forEach(System.out::println);
+        return payments;
     }
 
     public void findPaymentById(int paymentId) {
@@ -35,6 +36,12 @@ public class PaymentService {
     }
 
     public void registerPayment(Payment payment) {
+    }
+
+    public void addPayment(Payment payment) {
+    }
+
+    public void deletePayment(int paymentId) {
     }
 }
 

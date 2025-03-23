@@ -14,9 +14,10 @@ public class RideService {
         rideRepository.saveRide(ride);
     }
 
-    public void getAllRides() {
+    public List<Ride> getAllRides() {
         List<Ride> rides = rideRepository.findAllRides();
         rides.forEach(System.out::println);
+        return rides;
     }
 
     public void findRideById(int rideId) {
@@ -37,5 +38,11 @@ public class RideService {
         if (!rideRepository.updateRide(ride)) {
             System.out.println("Ride update failed!");
         }
+    }
+
+    public void addRide(Ride ride) {
+    }
+
+    public void deleteRide(int rideId) {
     }
 }

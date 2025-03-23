@@ -1,6 +1,5 @@
 package com.vaishnavi.cab.booking.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -33,19 +32,19 @@ public class Ride {
         return 0;
     }
 
-    public Object getPickupLocation() {
+    public String getPickupLocation() {
         return null;
     }
 
-    public Object getDropoffLocation() {
+    public String getDropoffLocation() {
         return null;
     }
 
-    public Object getFare() {
+    public double getFare() {
         return null;
     }
 
-    public Object getStatus() {
+    public String getStatus() {
         return null;
     }
 
@@ -59,5 +58,13 @@ public class Ride {
     }
 
     public void setStatus(java.lang.Object status) {
+    }
+
+    public int getUserId() {
+        return 0;
+    }
+
+    public int getDriverId() {
+        return 0;
     }
 }
